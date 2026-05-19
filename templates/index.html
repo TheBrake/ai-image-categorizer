@@ -9,21 +9,21 @@
   <style>
     /* ─── VARIABLES ─────────────────────────────────── */
     :root {
-      --void:       #02030a;
-      --deep:       #070b1a;
-      --nebula1:    #0d1b3e;
-      --nebula2:    #1a0a2e;
-      --accent:     #4fc3f7;
-      --accent2:    #b39ddb;
-      --gold:       #ffd54f;
-      --glow:       #00e5ff;
-      --danger:     #ef5350;
-      --success:    #66bb6a;
-      --text:       #e8eaf6;
-      --muted:      #7986cb;
-      --glass:      rgba(13, 27, 62, 0.55);
-      --glass-b:    rgba(79, 195, 247, 0.08);
-    }
+  --void:      #0c0d0e;
+  --deep:      #121315;
+  --nebula1:   #1a1b1e;
+  --nebula2:   #222428;
+  --accent:    #b7c444;            /* Violeta suave principal */
+  --accent2:   #41b414;            /* Violeta sutil para contrastes */
+  --gold:      #d1c4e9;            /* Violeta muy claro brillante */
+  --glow:      rgba(179, 157, 219, 0.6);
+  --danger:    #ef5350;            
+  --success:   #66bb6a;            
+  --text:      #f4f5f6;
+  --muted:     #8e9297;
+  --glass:     rgba(22, 24, 28, 0.9);
+  --glass-b:   rgba(179, 157, 219, 0.15); /* Borde con toque violeta suave */
+}
 
     /* ─── RESET & BASE ──────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -137,7 +137,7 @@
       background: var(--glass);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(79,195,247,0.18);
+      border: 1px solid rgba(75, 75, 78, 0.582);
       border-radius: 20px;
       padding: 36px;
       margin-bottom: 28px;
@@ -199,8 +199,15 @@
       animation: float 3s ease-in-out infinite;
     }
     @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50%       { transform: translateY(-8px); }
+      0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0);
+    }
     }
 
     .drop-text-main {
@@ -514,9 +521,11 @@
       text-align: center;
       padding-top: 40px;
       font-size: 0.75rem;
-      color: rgba(121,134,203,0.5);
+      color: rgba(121,134,203,0.7);
       font-family: 'Share Tech Mono', monospace;
       letter-spacing: 1px;
+
+      animation: float 3s ease-in-out infinite;
     }
 
     /* ─── ANIMATIONS ────────────────────────────────── */
@@ -552,21 +561,22 @@
 
   <!-- HEADER -->
   <header>
-    <div class="badge">🔬 Taller CNN · CIFAR-10</div>
+    <div class="badge"> Taller CNN · CIFAR-10</div>
     <h1>Clasificador de Imágenes<br>con Red Neuronal</h1>
-    <p>Sistema de visión artificial entrenado con <strong>50,000 imágenes</strong>. Identifica 10 categorías de objetos usando una arquitectura ResNet optimizada.</p>
-    <div class="accuracy-pill">PRECISIÓN DEL MODELO: 93% · DATASET CIFAR-10</div>
+    <p>Sistema de visión artificial entrenado con <strong>50,000 imágenes</strong>. <br>
+      Identifica 10 categorías de objetos usando una arquitectura de ResNet optimizada.</p>
+    <div class="accuracy-pill">PRECISIÓN DEL MODELO: 93,8% · DATASET CIFAR-10</div>
   </header>
 
   <!-- CARD: CARGA DE IMAGEN -->
   <div class="card">
     <div class="card-title">
-      <span class="icon">📡</span> Cargar Imagen para Clasificar
+      <span class="icon"></span> Carga Imagen para Clasificar
     </div>
 
     <!-- Drop Zone -->
     <div class="drop-zone" id="dropZone">
-      <span class="drop-icon">🛸</span>
+      <span class="drop-icon">🌆</span>
       <p class="drop-text-main">Arrastra tu imagen aquí</p>
       <p class="drop-text-sub">o <span onclick="document.getElementById('fileInput').click()">selecciona un archivo</span> desde tu dispositivo</p>
       <p class="drop-text-sub" style="margin-top:10px;">JPG, PNG, WEBP · Máximo 10 MB</p>
@@ -585,20 +595,20 @@
 
     <!-- Error -->
     <div class="error-msg" id="errorMsg">
-      <span>⚠️</span>
+      <span></span>
       <span id="errorText">Error desconocido.</span>
     </div>
 
     <!-- Clasificar -->
     <button class="btn-classify" id="btnClassify" disabled onclick="classify()">
-      🔍 &nbsp;CLASIFICAR IMAGEN
+       &nbsp;CLASIFICAR IMAGEN
     </button>
   </div>
 
   <!-- CARD: RESULTADO -->
   <div class="card" id="resultCard" style="display:none;">
     <div class="card-title">
-      <span class="icon">🧠</span> Resultado de la Predicción
+      <span class="icon"></span> Resultado de la Predicción
     </div>
 
     <!-- Loader -->
@@ -637,22 +647,24 @@
   <!-- CARD: INFO DEL MODELO -->
   <div class="card">
     <div class="card-title">
-      <span class="icon">⚙️</span> Información del Modelo
+      <span class="icon"></span> Más Información sobre el Modelo
     </div>
     <div class="info-grid">
       <div class="info-stat"><span class="val">ResNet</span><span class="lbl">Arquitectura</span></div>
-      <div class="info-stat"><span class="val">93%</span><span class="lbl">Precisión</span></div>
+      <div class="info-stat"><span class="val">93,8%</span><span class="lbl">Precisión</span></div>
       <div class="info-stat"><span class="val">120</span><span class="lbl">Épocas entrenadas</span></div>
       <div class="info-stat"><span class="val">50K</span><span class="lbl">Imágenes entrenamiento</span></div>
       <div class="info-stat"><span class="val">32×32</span><span class="lbl">Resolución de entrada</span></div>
       <div class="info-stat"><span class="val">10</span><span class="lbl">Clases detectables</span></div>
+      <div class="info-stat"><span class="val">4</span><span class="lbl">Modelos </span></div>
+      <div class="info-stat"><span class="val">2 Entornos</span><span class="lbl">de compatibilidad</span></div>
     </div>
   </div>
 
   <!-- CARD: CLASES -->
   <div class="card">
     <div class="card-title">
-      <span class="icon">🏷️</span> Clases que el Modelo Puede Identificar
+      <span class="icon"></span> Clases que el Modelo Puede Identificar
     </div>
     <div class="classes-grid">
       <div class="class-chip"><span class="ce">✈️</span>Avión</div>
@@ -669,15 +681,16 @@
   </div>
 
   <footer>
-    CIFAR-10 CLASSIFIER · TENSORFLOW 2.x · CNN RESNET-STYLE · 2025<br>
-    Taller: CNN y Fine-Tuning — Punto 5: Clasificación de Imagen Externa
+    Taller: CNN y Fine-Tuning con CIFAR-10 <br>
+    Desarrollado por Michael Giraldo, Sebastian Moncayo, Andres Garces y Salomon Melenje · 2026
   </footer>
 
 </div><!-- /container -->
 
 <script>
+
 /* ════════════════════════════════════════════════════
-   COSMOS BACKGROUND — Estrellas + Estrellas Fugaces
+   COSMOS BACKGROUND — Universo
 ════════════════════════════════════════════════════ */
 (function() {
   const canvas = document.getElementById('cosmos');
