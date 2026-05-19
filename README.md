@@ -1,31 +1,31 @@
-# 🛸 CIFAR-10 · Clasificador de Imágenes CNN
+# CIFAR-10 · Clasificador de Imágenes CNN
 ### Taller: CNN y Fine-Tuning — Punto 5: Clasificación de Imagen Externa
 
 ---
 
-## 📁 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 CIFAR10_Clasificador/
 │
 ├── models/
-│   └── best_cifar10_model.keras   ← ⚠️ DEBES COLOCAR AQUÍ TU MODELO
+│   └── best_cifar10_model.keras
 │
 ├── templates/
-│   └── index.html                 ← Interfaz web (cosmos + español)
+│   └── index.html                 
 │
-├── app.py                         ← Servidor Flask (API + web)
-├── predict_local.py               ← Script para Spyder/consola
-├── requirements.txt               ← Dependencias
+├── app.py                         
+├── predict_local.py               
+├── requirements.txt             
 └── README.md
 ```
 
 ---
 
-## 🚀 Instalación y Ejecución
+## Instalación y Ejecución
 
 ### 1. Colocar el modelo entrenado
-Copia tu archivo `best_cifar10_model.keras` (generado en Google Colab) dentro de la carpeta `models/`.
+Copia el archivo `best_cifar10_model.keras` (generado en Google Colab) dentro de la carpeta `models/`.
 
 ### 2. Instalar dependencias
 ```bash
@@ -40,7 +40,7 @@ Luego abre tu navegador en: **http://localhost:5000**
 
 ---
 
-## 🖥️ Uso con Spyder (sin servidor web)
+## Uso con Spyder (sin servidor web)
 
 Para clasificar directamente desde consola o Spyder:
 ```bash
@@ -50,7 +50,7 @@ Si no pasas la ruta como argumento, el script la solicitará interactivamente.
 
 ---
 
-## 🏷️ Clases detectables
+## Clases detectables
 
 | # | Español     | English    |
 |---|-------------|------------|
@@ -67,7 +67,7 @@ Si no pasas la ruta como argumento, el script la solicitará interactivamente.
 
 ---
 
-## 📊 Características del Modelo
+## Características del Modelo
 
 - **Arquitectura**: ResNet-style CNN
 - **Precisión alcanzada**: 93%
@@ -84,3 +84,7 @@ Si no pasas la ruta como argumento, el script la solicitará interactivamente.
 ---
 
 *Desarrollado con TensorFlow 2.x · Flask · HTML5 Canvas*
+
+---
+
+*Miembros: Michael Giraldo, Sebastian Moncayo, Andres Felipe Garces, Salomon Melenje*
