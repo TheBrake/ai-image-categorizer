@@ -1,5 +1,5 @@
 # CIFAR-10 · Clasificador de Imágenes CNN
-### Taller: CNN y Fine-Tuning — Punto 5: Clasificación de Imagen Externa
+### CNN y Fine-Tuning
 
 ---
 
@@ -36,7 +36,7 @@ pip install -r requirements.txt
 ```bash
 python app.py
 ```
-Luego abre tu navegador en: **http://localhost:5000**
+Luego abre el navegador en: **http://localhost:5000**
 
 ---
 
@@ -87,4 +87,4 @@ Si no pasas la ruta como argumento, el script la solicitará interactivamente.
 
 ---
 
-*Miembros: Michael Giraldo, Sebastian Moncayo, Andres Felipe Garces, Salomon Melenje*
+See you brodels
